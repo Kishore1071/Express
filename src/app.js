@@ -1,7 +1,6 @@
 import 'dotenv/config'
-import express from 'express'
+import express, { json } from 'express'
 import cors from 'cors'
-import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import authRoutes from './routes/auth.js'
 import notesRoutes from './routes/notes.js'
@@ -10,7 +9,7 @@ import crypto from 'crypto'
 
 const app = express()
 app.use(cors())
-app.use(bodyParser.json())
+app.use(json())
 
 const PORT = process.env.PORT || 3000
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/notesdb'
